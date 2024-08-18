@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Button from './component/ui/Button';
+import { FACEBOOK_ICON, FACEBOOK_LOGIN } from './links';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Button 
+        active={1}
+        title="Facebook으로 로그인"
+        link={FACEBOOK_LOGIN}
+        icon={FACEBOOK_ICON}
+        iconWidth={16}
+        iconHeight={16}
+      />
+      <br />
+      <Button 
+        active={0}
+        title="가입"
+      />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Join from '../list/Join';
+import Login from '../list/Login'
 import TextInfo from '../ui/TextInfo';
 import AppFooter from './AppFooter';
 import Img from '../ui/ImgInfo';
@@ -13,7 +13,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  padding: 10px 0 0 0;
+  padding: 10% 0 0 0;
   gap: 10px;
 `;
 
@@ -45,12 +45,12 @@ function Div(props) {
   }
 }
 
-function JoinPage() {
+function LoginPage() {
   return (
     <>
     <Container>
       <Div line={1} padding="50px 0 35px 0">
-        <Join />
+        <Login />
       </Div>
       <Div line={1} padding="25px 0">
         <TextInfo
@@ -58,16 +58,16 @@ function JoinPage() {
           size={14}
           weight={500}
           color="black"
-          info="계정이 있으신가요? "
+          info="계정이 없으신가요? "
         >
-          <Link to="/login" style={{ textDecoration: "none"}}>
+          <Link to="/join" style={{ textDecoration: "none"}}>
             <TextInfo
-              type="span"
+              type="a"
               size={14}
               weight="bold"
               color="rgb(0, 149, 246)"
               activeColor="rgb(126, 201, 250)"
-              info="로그인"
+              info="가입하기"
             />
           </Link>
         </TextInfo>
@@ -100,4 +100,4 @@ function JoinPage() {
   );
 }
 
-export default JoinPage;
+export default LoginPage;

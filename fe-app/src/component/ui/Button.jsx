@@ -8,7 +8,7 @@ const Icon = styled.img`
 `;
 
 const ButtonFont = css`
-  color: white;
+  color: ${(props) => props.fontColor || "white"};
   font: normal 600 14px "Arial", sans-serif;
   user-select: none;
 `;
@@ -16,7 +16,7 @@ const ButtonFont = css`
 const StyledButton = styled.button`
   ${ButtonFont}
 
-  background-color: rgba(0, 149, 246);
+  background-color: ${(props) => props.backgroundColor || "rgb(0, 149, 246)"};
 
   width: 268.67px;
   height: 32px;
@@ -39,24 +39,24 @@ const ActiveButton = styled(StyledButton)`
   cursor: pointer;
   transition: background-color 0.1s ease;
   &:hover{
-    background-color: rgba(24, 119, 242);
+    background-color: ${(props) => props.isHover && "rgb(24, 119, 242)"};
   }
 `;
 
 function Button(props) {
-  const {title, link, icon, iconWidth, iconHeight, active} = props;
+  const {title, fontColor, backgroundColor, isHover, hoverColor, link, icon, iconWidth, iconHeight, active} = props;
 
   if (active) {
     const handleClick = () => {
       window.location.href = link;
     };
 
-    return <ActiveButton onClick={handleClick}>
+    return <ActiveButton fontColor={fontColor} backgroundColor={backgroundColor} hoverColor={hoverColor} onClick={handleClick}>
       {icon && <Icon src={icon} alt="icon" width={iconWidth} height={iconHeight} />}
       {title || "button"}
     </ActiveButton>
   } else {
-    return <DeactiveButton>
+    return <DeactiveButton fontColor={fontColor} backgroundColor={backgroundColor} hoverColor={hoverColor}>
       {icon && <Icon src={icon} alt="icon" width={iconWidth} height={iconHeight} />}
       {title || "button"}
      </DeactiveButton> 

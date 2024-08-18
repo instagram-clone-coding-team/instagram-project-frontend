@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FACEBOOK_ICON, FACEBOOK_LOGIN, INSTAGRAM_TEXT_LOGO, MOREINFO_LINK } from '../../links';
+import { FACEBOOK_ICON2, FACEBOOK_LOGIN, INSTAGRAM_TEXT_LOGO, MOREINFO_LINK } from '../../links';
 import Button from '../ui/Button';
-import JoinText from './JoinText';
+import LoginText from './LoginText';
 import TextInfo from '../ui/TextInfo';
 import Img from '../ui/ImgInfo';
 
@@ -46,7 +46,7 @@ const DividerText = styled.span`
   z-index: 1;
 `;
 
-function Join(props) {
+function Login(props) {
   return (
     <Div>
       <Box>
@@ -56,22 +56,14 @@ function Join(props) {
           alt="instragram text logo"
         />
       </Box>
+      <Box />
       <Box>
-        <TextInfo
-          type="span"
-          size={16}
-          weight="bold"
-          info="친구들의 사진과 동영상을 보려면 가입하세요."
-        />
+        <LoginText />
       </Box>
       <Box>
         <Button 
-          active={1}
-          title="Facebook으로 로그인"
-          link={FACEBOOK_LOGIN}
-          icon={FACEBOOK_ICON}
-          iconWidth={16}
-          iconHeight={16}
+          active={0}
+          title="로그인"
         />
       </Box>
       <Box>
@@ -82,32 +74,29 @@ function Join(props) {
         </Wrapper>
       </Box>
       <Box>
-        <JoinText />
+        <Button 
+          active={1}
+          title="Facebook으로 로그인"
+          link={FACEBOOK_LOGIN}
+          icon={FACEBOOK_ICON2}
+          fontColor="rgb(56, 81, 133)"
+          backgroundColor="white"
+          iconWidth={16}
+          iconHeight={16}
+        />
       </Box>
       <Box>
-        <TextInfo
-          type="span"
-          size={12}
-          info="저희 서비스를 이용하는 사람이 회원님의 연락처 정보를 Instagram에 업로드했을 수도 있습니다. "
-        >
         <TextInfo
           type="a"
           size={12}
           color="rgb(0, 55, 107)"
           activeColor="rgb(126, 154, 180)"
-          info="더 알아보기"
+          info="비밀번호를 잊으셨나요?"
           link={MOREINFO_LINK}
-        />
-        </TextInfo>
-      </Box>
-      <Box>
-        <Button 
-          active={0}
-          title="가입"
         />
       </Box>
     </Div>
   )
 }
 
-export default Join;
+export default Login;

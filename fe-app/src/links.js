@@ -1,9 +1,11 @@
 import facebookIcon from './image/facebook-icon.png';
+import facebookIcon2 from './image/facebook-icon2.png';
 import instagramLogo from './image/instagram-logo.png';
 import googleplayBadge from './image/GooglePlay-Badge.png';
 import microsoftBadge from './image/Microsoft-Badge.png'
 // IMAGE
 export const FACEBOOK_ICON = facebookIcon;
+export const FACEBOOK_ICON2 = facebookIcon2;
 export const INSTAGRAM_TEXT_LOGO = instagramLogo;
 export const GOOGLEPLAY_BADGE = googleplayBadge;
 export const MICROSOFT_BADGE = microsoftBadge;

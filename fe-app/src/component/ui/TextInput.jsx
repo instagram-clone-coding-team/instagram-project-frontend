@@ -38,7 +38,7 @@ const StyledText = styled.input`
 
 const Placeholder = styled.label`
   position: absolute;
-  left: 5px;
+  left: 8px;
   top: 50%;
   transform: translateY(-50%);
   font-size: 12px;
@@ -61,7 +61,7 @@ function TextInput({ placeholder }) {
       />
       <Placeholder>{placeholder}</Placeholder>
     </Container>
-  )
+  );
 }
 
 export default TextInput;

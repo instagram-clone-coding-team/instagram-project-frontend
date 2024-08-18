@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import Button from './component/ui/Button';
 import { FACEBOOK_ICON, FACEBOOK_LOGIN } from './links';
+import Button from './component/ui/Button';
+import TextInput from './component/ui/TextInput';
 
 function App() {
   return (
@@ -19,6 +20,15 @@ function App() {
         active={0}
         title="가입"
       />
+      <br />
+      <TextInput
+        placeholder="휴대폰 번호 또는 이메일 주소"
+      />
+      <br />
+      <TextInput
+        placeholder="성명"
+      />
+      
     </div>
   );
 }

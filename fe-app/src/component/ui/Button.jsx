@@ -36,7 +36,6 @@ const DeactiveButton = styled(StyledButton)`
 `;
 
 const ActiveButton = styled(StyledButton)`
-  opacity: 1;
   cursor: pointer;
   transition: background-color 0.1s ease;
   &:hover{

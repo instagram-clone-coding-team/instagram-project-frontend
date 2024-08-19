@@ -10,12 +10,10 @@ const TextBox = styled.div`
   width: 100%;
 `;
 
-function LoginText(props) {
+function FindPasswordText(props) {
   const items = [
-    ['text', '전화번호, 사용자 이름 또는 이메일'],
-    ['password', '비밀번호'],
-  ];
-  
+    ['text', '이메일, 전화번호, 사용자 이름'],
+  ]
   return (
     <TextBox>
       {items.map(([type, placeholder], index) => (
@@ -28,4 +26,4 @@ function LoginText(props) {
   )
 }
 
-export default LoginText;
+export default FindPasswordText;

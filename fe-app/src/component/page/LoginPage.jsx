@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import StyledLink from '../ui/Link';
 import Login from '../list/Login'
 import TextInfo from '../ui/TextInfo';
 import AppFooter from './AppFooter';
@@ -12,8 +12,15 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100%;
-  padding: 10% 0 0 0;
   gap: 10px;
 `;
 
@@ -49,53 +56,55 @@ function LoginPage() {
   return (
     <>
     <Container>
-      <Div line={1} padding="50px 0 35px 0">
-        <Login />
-      </Div>
-      <Div line={1} padding="25px 0">
-        <TextInfo
-          type="span"
-          size={14}
-          weight={500}
-          color="black"
-          info="계정이 없으신가요? "
-        >
-          <Link to="/join" style={{ textDecoration: "none"}}>
-            <TextInfo
-              type="a"
-              size={14}
-              weight="bold"
-              color="rgb(0, 149, 246)"
-              activeColor="rgb(126, 201, 250)"
-              info="가입하기"
-            />
-          </Link>
-        </TextInfo>
-      </Div>
-      <Div line={0} padding="10px 0">
-        <TextInfo
-          type="div"
-          size={14}
-          color="black"
-          info="앱을 다운로드하세요."
-        />
-      </Div>
-      <Div padding="0 0 25px 0">
-        <Img
-          src={GOOGLEPLAY_BADGE}
-          size={134.28}
-          alt="google play 다운로드하기"
-          link={GOOGLEPLAY_LINK}
-        />
-        <Img
-          src={MICROSOFT_BADGE}
-          size={110.76}
-          alt="Microsoft에서 가져오기"
-          link={MICROSOFT_LINK}
-        />
-      </Div>
+      <Wrapper>
+        <Div line={1} padding="50px 0 35px" id="login">
+          <Login />
+        </Div>
+        <Div line={1} padding="25px 0">
+          <TextInfo
+            type="span"
+            size={14}
+            weight={500}
+            color="black"
+            info="계정이 없으신가요? "
+          >
+            <StyledLink to="/join">
+              <TextInfo
+                type="a"
+                size={14}
+                weight="bold"
+                color="rgb(0, 149, 246)"
+                activeColor="rgb(126, 201, 250)"
+                info="가입하기"
+              />
+            </StyledLink>
+          </TextInfo>
+        </Div>
+        <Div line={0} padding="10px 0">
+          <TextInfo
+            type="div"
+            size={14}
+            color="black"
+            info="앱을 다운로드하세요."
+          />
+        </Div>
+        <Div padding="0 0 25px 0">
+          <Img
+            src={GOOGLEPLAY_BADGE}
+            size={134.28}
+            alt="google play 다운로드하기"
+            link={GOOGLEPLAY_LINK}
+          />
+          <Img
+            src={MICROSOFT_BADGE}
+            size={110.76}
+            alt="Microsoft에서 가져오기"
+            link={MICROSOFT_LINK}
+          />
+        </Div>
+      </Wrapper>
+      <AppFooter/>
     </Container>
-    <AppFooter/>
     </>
   );
 }

@@ -11,20 +11,20 @@ const TextBox = styled.div`
 `;
 
 function JoinText(props) {
+  const items = [
+    ['text', '휴대폰 번호 또는 이메일 주소'],
+    ['text', '성명'],
+    ['text', '사용자 이름'],
+    ['password', '비밀번호'],
+  ]
   return (
     <TextBox>
-      <TextInput
-        placeholder="휴대폰 번호 또는 이메일 주소"
-      />
-      <TextInput
-         placeholder="성명"
-      />
-      <TextInput
-        placeholder="사용자 이름"
-      />
-      <TextInput
-        placeholder="비밀번호"
-      />
+      {items.map(([type, placeholder], index) => (
+        <TextInput
+          type={type}
+          placeholder={placeholder}
+        />
+      ))}
     </TextBox>
   )
 }

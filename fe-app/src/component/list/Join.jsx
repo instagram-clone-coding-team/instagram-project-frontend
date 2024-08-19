@@ -6,25 +6,25 @@ import JoinText from './JoinText';
 import TextInfo from '../ui/TextInfo';
 import Img from '../ui/ImgInfo';
 
-const Div = styled.div`
+const Container = styled.div`
   border: 0;
   display: flex;
   flex-direction: column;
   margin: 0;
   max-width: 350px;
-  padding: 0;
+  padding: 0 12%;
   vertical-align: baseline;
   gap: 15px;
 `;
 
-const Box = styled.div`
+const Div = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 268.67px;
+  width: 100%;
 `;
 
-const Wrapper = styled.div`
+const LineWrapper = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
@@ -48,43 +48,44 @@ const DividerText = styled.span`
 
 function Join(props) {
   return (
-    <Div>
-      <Box>
+    <Container>
+      <Div>
         <Img
           src={INSTAGRAM_TEXT_LOGO}
           size={175}
           alt="instragram text logo"
         />
-      </Box>
-      <Box>
+      </Div>
+      <Div>
         <TextInfo
           type="span"
           size={16}
           weight="bold"
           info="친구들의 사진과 동영상을 보려면 가입하세요."
         />
-      </Box>
-      <Box>
+      </Div>
+      <Div>
         <Button 
           active={1}
           title="Facebook으로 로그인"
           link={FACEBOOK_LOGIN}
+          isHover={1}
           icon={FACEBOOK_ICON}
           iconWidth={16}
           iconHeight={16}
         />
-      </Box>
-      <Box>
-        <Wrapper>
+      </Div>
+      <Div>
+        <LineWrapper>
           <Line/>
           <DividerText>또는</DividerText>
           <Line/>
-        </Wrapper>
-      </Box>
-      <Box>
+        </LineWrapper>
+      </Div>
+      <Div>
         <JoinText />
-      </Box>
-      <Box>
+      </Div>
+      <Div>
         <TextInfo
           type="span"
           size={12}
@@ -99,14 +100,14 @@ function Join(props) {
           link={MOREINFO_LINK}
         />
         </TextInfo>
-      </Box>
-      <Box>
+      </Div>
+      <Div>
         <Button 
           active={0}
           title="가입"
         />
-      </Box>
-    </Div>
+      </Div>
+    </Container>
   )
 }
 

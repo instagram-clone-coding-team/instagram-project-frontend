@@ -18,7 +18,7 @@ const StyledButton = styled.button`
 
   background-color: ${(props) => props.backgroundColor || "rgb(0, 149, 246)"};
 
-  width: 268.67px;
+  width: 100%;
   height: 32px;
   padding: 4px;
   border: none;
@@ -29,38 +29,61 @@ const StyledButton = styled.button`
   justify-content: center;
 `;
 
-const DeactiveButton = styled(StyledButton)`
-  opacity: .7;
+const StyledActiveButton = styled(StyledButton)`
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+  ${(props) =>
+    props.isHover &&
+    `
+    &:hover {
+      background-color: ${props.hoverColor || "rgb(24, 119, 242)"};
+    }
+  `}
+`;
+
+const StyledDeactiveButton = styled(StyledButton)`
+  opacity: ${(props) => props.opacity || 1};
   pointer-events: none;
   cursor: not-allowed;
 `;
 
-const ActiveButton = styled(StyledButton)`
-  cursor: pointer;
-  transition: background-color 0.1s ease;
-  &:hover{
-    background-color: ${(props) => props.isHover && "rgb(24, 119, 242)"};
-  }
-`;
-
 function Button(props) {
-  const {title, fontColor, backgroundColor, isHover, hoverColor, link, icon, iconWidth, iconHeight, active} = props;
-
-  if (active) {
+  const {
+    title, link, active,
+    fontColor, backgroundColor, opacity,
+    isHover, hoverColor,
+    icon, iconWidth, iconHeight
+  } = props;
+  
+  if (active || 0) {
     const handleClick = () => {
       window.location.href = link;
     };
-
-    return <ActiveButton fontColor={fontColor} backgroundColor={backgroundColor} hoverColor={hoverColor} onClick={handleClick}>
-      {icon && <Icon src={icon} alt="icon" width={iconWidth} height={iconHeight} />}
-      {title || "button"}
-    </ActiveButton>
+  
+    return (
+      <StyledActiveButton
+        fontColor={fontColor}
+        backgroundColor={backgroundColor}
+        isHover={isHover}
+        hoverColor={hoverColor}
+        onClick={handleClick}
+      >
+        {icon && <Icon src={icon} alt="icon" width={iconWidth} height={iconHeight} />}
+        {title || "button"}
+      </StyledActiveButton>
+    )
   } else {
-    return <DeactiveButton fontColor={fontColor} backgroundColor={backgroundColor} hoverColor={hoverColor}>
-      {icon && <Icon src={icon} alt="icon" width={iconWidth} height={iconHeight} />}
-      {title || "button"}
-     </DeactiveButton> 
+    return (
+      <StyledDeactiveButton
+        fontColor={fontColor}
+        backgroundColor={backgroundColor}
+        opacity={opacity || .7}
+      >
+        {icon && <Icon src={icon} alt="icon" width={iconWidth} height={iconHeight} />}
+        {title || "button"}
+      </StyledDeactiveButton> 
+    );
   }
 }
 
-export default Button;
+export default Button

@@ -1,30 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
+import StyledLink from '../ui/Link';
 import { FACEBOOK_ICON2, FACEBOOK_LOGIN, INSTAGRAM_TEXT_LOGO, MOREINFO_LINK } from '../../links';
 import Button from '../ui/Button';
 import LoginText from './LoginText';
 import TextInfo from '../ui/TextInfo';
 import Img from '../ui/ImgInfo';
 
-const Div = styled.div`
+const Container = styled.div`
   border: 0;
   display: flex;
   flex-direction: column;
   margin: 0;
   max-width: 350px;
-  padding: 0;
+  padding: 0 12%;
   vertical-align: baseline;
   gap: 15px;
 `;
 
-const Box = styled.div`
+const Div = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 268.67px;
+  width: 100%;
 `;
 
-const Wrapper = styled.div`
+const LineWrapper = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
@@ -48,32 +49,32 @@ const DividerText = styled.span`
 
 function Login(props) {
   return (
-    <Div>
-      <Box>
+    <Container>
+      <Div>
         <Img
           src={INSTAGRAM_TEXT_LOGO}
           size={175}
           alt="instragram text logo"
         />
-      </Box>
-      <Box />
-      <Box>
+      </Div>
+      <Div />
+      <Div>
         <LoginText />
-      </Box>
-      <Box>
+      </Div>
+      <Div>
         <Button 
           active={0}
           title="로그인"
         />
-      </Box>
-      <Box>
-        <Wrapper>
+      </Div>
+      <Div>
+        <LineWrapper>
           <Line/>
           <DividerText>또는</DividerText>
           <Line/>
-        </Wrapper>
-      </Box>
-      <Box>
+        </LineWrapper>
+      </Div>
+      <Div>
         <Button 
           active={1}
           title="Facebook으로 로그인"
@@ -84,18 +85,19 @@ function Login(props) {
           iconWidth={16}
           iconHeight={16}
         />
-      </Box>
-      <Box>
-        <TextInfo
-          type="a"
-          size={12}
-          color="rgb(0, 55, 107)"
-          activeColor="rgb(126, 154, 180)"
-          info="비밀번호를 잊으셨나요?"
-          link={MOREINFO_LINK}
-        />
-      </Box>
-    </Div>
+      </Div>
+      <Div>
+        <StyledLink to="/find/password">
+          <TextInfo
+            type="span"
+            size={12}
+            color="rgb(0, 55, 107)"
+            activeColor="rgb(126, 154, 180)"
+            info="비밀번호를 잊으셨나요?"
+            />
+        </StyledLink>
+      </Div>
+    </Container>
   )
 }
 

@@ -1,14 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import TextInput from "../ui/TextInput";
-
-const TextBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 7px;
-  width: 100%;
-`;
+import { TextBox } from './ListCSS';
 
 function FindPasswordText(props) {
   const items = [

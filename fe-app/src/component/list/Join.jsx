@@ -1,50 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 import { FACEBOOK_ICON, FACEBOOK_LOGIN, INSTAGRAM_TEXT_LOGO, MOREINFO_LINK } from '../../links';
 import Button from '../ui/Button';
-import JoinText from './JoinText';
-import TextInfo from '../ui/TextInfo';
 import Img from '../ui/ImgInfo';
-
-const Container = styled.div`
-  border: 0;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  max-width: 350px;
-  padding: 0 12%;
-  vertical-align: baseline;
-  gap: 15px;
-`;
-
-const Div = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-`;
-
-const LineWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-`;
-
-const Line = styled.hr`
-  flex-grow: 1;
-  border: none;
-  border-top: 1px solid rgb(219, 219, 219);
-`;
-
-const DividerText = styled.span`
-  font-size: 13px;
-  font-weight: bold;
-  color: rgb(115, 115, 115);
-
-  background: rgb(255, 255, 255);
-  padding: 0 20px; 
-  z-index: 1;
-`;
+import TextInfo from '../ui/TextInfo';
+import JoinText from './JoinText';
+import { Container, Div, DividerText, Line, LineWrapper } from './ListCSS';
 
 function Join(props) {
   return (

@@ -1,63 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
+import { GOOGLEPLAY_BADGE, GOOGLEPLAY_LINK, MICROSOFT_BADGE, MICROSOFT_LINK } from '../../links';
+import Login from '../list/Login';
+import Img from '../ui/ImgInfo';
 import StyledLink from '../ui/Link';
-import Login from '../list/Login'
 import TextInfo from '../ui/TextInfo';
 import AppFooter from './AppFooter';
-import Img from '../ui/ImgInfo';
-import { GOOGLEPLAY_BADGE, MICROSOFT_BADGE, GOOGLEPLAY_LINK, MICROSOFT_LINK } from '../../links';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  gap: 10px;
-`;
-
-const StyledDiv = styled.div `
-  display: flex;
-  justify-content: center;
-
-  width: 350px;
-  box-sizing: border-box;
-
-  gap: 8px;
-  padding: ${(props) => props.padding};
-`;
-
-const StyledLineDiv = styled(StyledDiv)`
-  padding: ${(props) => props.padding};
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(219, 219, 219);
-  border-radius: 1px;
-`;
-
-function Div(props) {
-  const { line, padding, children } = props;
-
-  if(line) {
-    return <StyledLineDiv padding={padding}>{children}</StyledLineDiv>;
-  } else {
-    return <StyledDiv padding={padding}>{children}</StyledDiv>;
-  }
-}
+import { Container, Div, Wrapper } from './PageCSS';
 
 function LoginPage() {
   return (
     <>
     <Container>
-      <Wrapper>
-        <Div line={1} padding="50px 0 35px" id="login">
+      <Wrapper gap={10}>
+        <Div line={1} padding="50px 0 35px">
           <Login />
         </Div>
         <Div line={1} padding="25px 0">

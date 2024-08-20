@@ -1,6 +1,6 @@
 import React from 'react';
 import { GOOGLEPLAY_BADGE, GOOGLEPLAY_LINK, MICROSOFT_BADGE, MICROSOFT_LINK } from '../../links';
-import Join from '../list/Join';
+import Join from '../list/JoinItems';
 import Img from '../ui/ImgInfo';
 import StyledLink from '../ui/Link';
 import TextInfo from '../ui/TextInfo';

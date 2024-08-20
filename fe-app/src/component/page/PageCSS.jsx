@@ -14,6 +14,7 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: ${(props) => props.width || 350}px;
   height: 100%;
   gap: ${(props) => props.gap || 0}px;
 `;
@@ -21,9 +22,10 @@ const StyledWrapper = styled.div`
 
 const StyledDiv = styled.div `
   display: flex;
+  align-items: center;
   justify-content: center;
   
-  width: ${(props) => props.width || 350}px;
+  width: 100%;
   box-sizing: border-box;
   
   gap: 8px;
@@ -31,16 +33,16 @@ const StyledDiv = styled.div `
 `;
 
 const StyledLineDiv = styled(StyledDiv)`
-  padding: ${(props) => props.padding};
+  flex-direction: column;
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(219, 219, 219);
   border-radius: 1px;
 `;
 
 function Wrapper(props) {
-  const {gap, children} = props;
+  const {width, gap, children} = props;
   return (
-    <StyledWrapper gap={gap}>
+    <StyledWrapper width={width} gap={gap}>
       {children}
     </StyledWrapper>
   );

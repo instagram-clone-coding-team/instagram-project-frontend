@@ -1,90 +1,70 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
 import { FACEBOOK_ICON, FACEBOOK_LOGIN, INSTAGRAM_TEXT_LOGO, MOREINFO_LINK } from '../../links';
 import Button from '../ui/Button';
-import LoginText from './JoinText';
-import TextInfo from '../ui/TextInfo';
 import Img from '../ui/ImgInfo';
+import TextInfo from '../ui/TextInfo';
+import JoinItemText from './JoinItemText';
+import { Container, Div, DividerText, Line, LineWrapper } from './ListCSS';
 
-const Div = styled.div`
-  border: 0;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  max-width: 350px;
-  padding: 0;
-  vertical-align: baseline;
-  gap: 15px;
-`;
+function JoinItems() {
+  const [formValues, setFormValues] = useState({
+    id: '',
+    fullName: '',
+    username:'',
+    password: '',
+  });
+  
+  const isFormValid = Object.values(formValues).every(value => value !== '');
+ 
+  const handleChange = (field, value) => {
+    setFormValues(prevValues => ({
+      ...prevValues,
+      [field]: value
+    }));
+  };
 
-const Box = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 268.67px;
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-`;
-
-const Line = styled.hr`
-  flex-grow: 1;
-  border: none;
-  border-top: 1px solid rgb(219, 219, 219);
-`;
-
-const DividerText = styled.span`
-  font-size: 13px;
-  font-weight: bold;
-  color: rgb(115, 115, 115);
-
-  background: rgb(255, 255, 255);
-  padding: 0 20px; 
-  z-index: 1;
-`;
-
-function Join(props) {
   return (
-    <Div>
-      <Box>
+    <Container>
+      <Div>
         <Img
           src={INSTAGRAM_TEXT_LOGO}
           size={175}
           alt="instragram text logo"
         />
-      </Box>
-      <Box>
+      </Div>
+      <Div>
         <TextInfo
           type="span"
           size={16}
           weight="bold"
           info="친구들의 사진과 동영상을 보려면 가입하세요."
         />
-      </Box>
-      <Box>
+      </Div>
+      <Div>
         <Button 
           active={1}
           title="Facebook으로 로그인"
           link={FACEBOOK_LOGIN}
+          isHover={1}
           icon={FACEBOOK_ICON}
           iconWidth={16}
           iconHeight={16}
         />
-      </Box>
-      <Box>
-        <Wrapper>
+      </Div>
+      <Div>
+        <LineWrapper>
           <Line/>
           <DividerText>또는</DividerText>
           <Line/>
-        </Wrapper>
-      </Box>
-      <Box>
-        <LoginText />
-      </Box>
-      <Box>
+        </LineWrapper>
+      </Div>
+      <Div>
+        <JoinItemText
+          formValues={formValues}
+          onChange={handleChange}
+        />
+      </Div>
+      <Div>
         <TextInfo
           type="span"
           size={12}
@@ -99,15 +79,15 @@ function Join(props) {
           link={MOREINFO_LINK}
         />
         </TextInfo>
-      </Box>
-      <Box>
+      </Div>
+      <Div>
         <Button 
-          active={0}
+          active={isFormValid ? 1 : 0}
           title="가입"
         />
-      </Box>
-    </Div>
+      </Div>
+    </Container>
   )
 }
 
-export default Join;
+export default JoinItems;

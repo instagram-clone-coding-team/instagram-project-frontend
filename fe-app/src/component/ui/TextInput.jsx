@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 const Container = styled.div`
   position: relative;
-  width: 268.67px;
+  width: 100%;
 `;
 
 const TextInputFont = css`
@@ -47,15 +47,13 @@ const Placeholder = styled.label`
   transition: all 0.3s ease;
 `;
 
-function TextInput({ placeholder }) {
-  const [value, setValue] = useState('');
-
+function TextInput({ type, placeholder, value = '', onChange }) {
   return (
     <Container>
       <StyledText
-        type="text"
+        type={type}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={onChange}
         hasText={value.length > 0}
         placeholder=""
       />

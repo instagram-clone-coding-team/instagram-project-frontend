@@ -5,7 +5,8 @@ import { TextBox } from './ListCSS';
 function FindPasswordItemText({ formValues, onChange }) {
   const items = [
     ['text', '이메일, 전화번호, 사용자 이름', 'id'],
-  ]
+  ];
+  
   return (
     <TextBox>
       {items.map(([type, placeholder, field], index) => (

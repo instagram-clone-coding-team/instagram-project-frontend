@@ -7,7 +7,7 @@ import TextInfo from '../ui/TextInfo';
 import FindPasswordItemText from "./FindPasswordItemText";
 import { Container, Div, DividerText, Line, LineWrapper } from "./ListCSS";
 
-function Join(props) {
+function Join() {
   const [formValues, setFormValues] = useState({
     id: '',
   });
@@ -47,7 +47,10 @@ function Join(props) {
         />
       </Div>
       <Div>
-        <FindPasswordItemText />
+        <FindPasswordItemText
+          formValues={formValues}
+          onChange={handleChange}
+        />
       </Div>
       <Div>
         <Button

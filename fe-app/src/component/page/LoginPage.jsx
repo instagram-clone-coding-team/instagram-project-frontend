@@ -1,6 +1,6 @@
 import React from 'react';
 import { GOOGLEPLAY_BADGE, GOOGLEPLAY_LINK, INSTAGRAM_TEXT_LOGO, MICROSOFT_BADGE, MICROSOFT_LINK } from '../../links';
-import { Login, LoginToJoin } from '../list/LoginItems';
+import { LoginItems, LoginToJoin } from '../list/LoginItems';
 import Img from '../ui/ImgInfo';
 import TextInfo from '../ui/TextInfo';
 import AppFooter from './AppFooter';
@@ -19,7 +19,7 @@ function LoginPage() {
               alt="instragram text logo"
             />
         </Div>
-          <Login />
+          <LoginItems />
         </Div>
 
         <Div line={1} padding="25px 0">

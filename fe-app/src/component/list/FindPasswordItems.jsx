@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { LOCK_ICON, PASSWORD_SERVICE } from '../../links';
 import Button from '../ui/Button';
 import Img from "../ui/ImgInfo";
 import StyledLink from "../ui/Link";
 import TextInfo from '../ui/TextInfo';
-import FindPasswordText from "./FindPasswordText";
+import FindPasswordItemText from "./FindPasswordItemText";
 import { Container, Div, DividerText, Line, LineWrapper } from "./ListCSS";
 
 function Join(props) {
+  const [formValues, setFormValues] = useState({
+    id: '',
+  });
+  
+  const isFormValid = Object.values(formValues).every(value => value !== '');
+ 
+  const handleChange = (field, value) => {
+    setFormValues(prevValues => ({
+      ...prevValues,
+      [field]: value
+    }));
+  };
+
   return (
     <Container>
       <Div>
@@ -34,12 +47,12 @@ function Join(props) {
         />
       </Div>
       <Div>
-        <FindPasswordText />
+        <FindPasswordItemText />
       </Div>
       <Div>
         <Button
-          active={0}
-          opacity={.3}
+          active={isFormValid ? 1 : 0}
+          opacity={isFormValid ? 1 : .3}
           title="로그인 링크 보내기"
         />
       </Div>

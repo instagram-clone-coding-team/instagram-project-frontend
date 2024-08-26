@@ -1,20 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FACEBOOK_ICON2, FACEBOOK_LOGIN } from '../../links';
 import Button from '../ui/Button';
 import StyledLink from '../ui/Link';
 import TextInfo from '../ui/TextInfo';
 import { Container, Div, DividerText, Line, LineWrapper } from './ListCSS';
-import LoginText from './LoginText';
+import LoginItemText from './LoginItemText';
 
-function Login() {
+function LoginItems() {
+  const [formValues, setFormValues] = useState({
+    id: '',
+    password: '',
+  });
+  
+  const isFormValid = Object.values(formValues).every(value => value !== '');
+ 
+  const handleChange = (field, value) => {
+    setFormValues(prevValues => ({
+      ...prevValues,
+      [field]: value
+    }));
+  };
+
   return (
     <Container>
       <Div>
-        <LoginText />
+        <LoginItemText 
+          formValues={formValues}
+          onChange={handleChange}
+        />
       </Div>
       <Div>
         <Button 
-          active={0}
+          active={isFormValid ? 1 : 0}
           title="로그인"
         />
       </Div>
@@ -75,4 +92,4 @@ function LoginToJoin() {
   )
 }
 
-export { Login, LoginToJoin };
+export { LoginItems, LoginToJoin };

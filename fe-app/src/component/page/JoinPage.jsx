@@ -1,6 +1,6 @@
 import React from 'react';
 import { GOOGLEPLAY_BADGE, GOOGLEPLAY_LINK, MICROSOFT_BADGE, MICROSOFT_LINK } from '../../links';
-import Join from '../list/JoinItems';
+import JoinItems from '../list/JoinItems';
 import Img from '../ui/ImgInfo';
 import StyledLink from '../ui/Link';
 import TextInfo from '../ui/TextInfo';
@@ -13,7 +13,7 @@ function JoinPage() {
     <Container>
       <Wrapper gap={10}>
         <Div line={1} padding="50px 0 35px">
-          <Join />
+          <JoinItems />
         </Div>
         <Div line={1} padding="25px 0">
           <TextInfo

@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Wrapper, Div } from "./PageCSS";
-import { Login, LoginToJoin } from "../list/LoginItems";
-import TextInfo from "../ui/TextInfo";
+import { LoginItems, LoginToJoin } from "../list/LoginItems";
+import AppFooter from './AppFooter';
 
 function LandingPage() {
   return (
@@ -9,12 +9,13 @@ function LandingPage() {
     <Container>
       <Wrapper>
         <Div padding="50px 0 35px">
-          <Login />
+          <LoginItems />
         </Div>
         <Div padding="25px 0">
           <LoginToJoin />
         </Div>
       </Wrapper>
+      <AppFooter />
     </Container>
     </>
   );

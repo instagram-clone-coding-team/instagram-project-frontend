@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FACEBOOK_ICON, FACEBOOK_LOGIN, INSTAGRAM_TEXT_LOGO, MOREINFO_LINK } from '../../links';
 import Button from '../ui/Button';
 import Img from '../ui/ImgInfo';
 import TextInfo from '../ui/TextInfo';
-import JoinText from './JoinText';
+import JoinItemText from './JoinItemText';
 import { Container, Div, DividerText, Line, LineWrapper } from './ListCSS';
 
-function Join(props) {
+function JoinItems() {
+  const [formValues, setFormValues] = useState({
+    id: '',
+    fullName: '',
+    username:'',
+    password: '',
+  });
+  
+  const isFormValid = Object.values(formValues).every(value => value !== '');
+ 
+  const handleChange = (field, value) => {
+    setFormValues(prevValues => ({
+      ...prevValues,
+      [field]: value
+    }));
+  };
+
   return (
     <Container>
       <Div>
@@ -43,7 +59,10 @@ function Join(props) {
         </LineWrapper>
       </Div>
       <Div>
-        <JoinText />
+        <JoinItemText
+          formValues={formValues}
+          onChange={handleChange}
+        />
       </Div>
       <Div>
         <TextInfo
@@ -63,7 +82,7 @@ function Join(props) {
       </Div>
       <Div>
         <Button 
-          active={0}
+          active={isFormValid ? 1 : 0}
           title="가입"
         />
       </Div>
@@ -71,4 +90,4 @@ function Join(props) {
   )
 }
 
-export default Join;
+export default JoinItems;

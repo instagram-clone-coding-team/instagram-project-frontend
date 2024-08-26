@@ -47,15 +47,13 @@ const Placeholder = styled.label`
   transition: all 0.3s ease;
 `;
 
-function TextInput({ type, placeholder }) {
-  const [value, setValue] = useState('');
-
+function TextInput({ type, placeholder, value = '', onChange }) {
   return (
     <Container>
       <StyledText
         type={type}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={onChange}
         hasText={value.length > 0}
         placeholder=""
       />

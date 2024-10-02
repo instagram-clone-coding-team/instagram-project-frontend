@@ -6,8 +6,23 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 158px);
 `;
+
+const RowLayout = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+`;
+
+const HiddenElement = styled.div`
+  display: block;
+  @media (max-width: 900px) {
+    display: none;
+  }
+`
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -17,8 +32,8 @@ const StyledWrapper = styled.div`
   width: ${(props) => props.width || 350}px;
   height: 100%;
   gap: ${(props) => props.gap || 0}px;
+  flex-shrink: 0; // 부모 요소가 자식의 너비를 줄이지 않도록 설정
 `;
-
 
 const StyledDiv = styled.div `
   display: flex;
@@ -72,5 +87,14 @@ function Div(props) {
   }
 }
 
-export { Container, Div, Wrapper };
+function Hidden(props) {
+  const { children } = props;
+  return (
+    <HiddenElement>
+      {children}
+    </HiddenElement>
+  )
+}
+
+export { Container, Div, RowLayout, Wrapper, HiddenElement };
 

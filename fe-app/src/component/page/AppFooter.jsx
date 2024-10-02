@@ -2,13 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 const Footer = styled.footer`
+  position: fixed;
+  bottom: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
   height: 158px;
   background-color: rgb(255, 255, 255);
-  padding: 0 16px;
 `;
 
 const FooterContent = styled.div`

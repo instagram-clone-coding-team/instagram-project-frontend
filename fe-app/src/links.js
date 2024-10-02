@@ -2,7 +2,7 @@ import googleplayBadge from './image/GooglePlay-Badge.png';
 import microsoftBadge from './image/Microsoft-Badge.png';
 import facebookIcon from './image/facebook-icon.png';
 import facebookIcon2 from './image/facebook-icon2.png';
-import homepageExample from './image/homepage-example.PNG';
+import homepageExample from './image/homepage-example.png';
 import instagramLogo from './image/instagram-logo.png';
 import lockIcon from './image/lock.png';
 // IMAGE

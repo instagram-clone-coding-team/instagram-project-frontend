@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -50,4 +49,4 @@ const TextBox = styled.div`
   width: 100%;
 `;
 
-export { Container, Div, LineWrapper, Line, DividerText, TextBox };
+export { Container, Div, DividerText, Line, LineWrapper, TextBox };

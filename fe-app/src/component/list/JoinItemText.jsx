@@ -1,4 +1,4 @@
-import { faCircleCheck, faCircleXmark, faRegCheckCircle } from '@fortawesome/free-regular-svg-icons';
+import { faCircleCheck, faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from "axios";
 import React, { useState } from "react";
